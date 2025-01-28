@@ -25,9 +25,13 @@ class AdminController extends Controller
     function registerUser(Request $request)
     {
 
-        echo $request->username;
-        echo $request->email;
-        echo $request->password;
+        $request->validate([
+            'username' => 'required | min:3 | max:15 | uppercase',
+            'email' => 'required | email',
+            'password' => 'required',
+        ]);
+
+        return ($request);
     }
 
     function updateProfile(Request $request)
