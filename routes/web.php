@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\UploadController;
 
 // to access controllers or view 
 Route::get('/', function () {
@@ -61,4 +62,10 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('/profile', 'profile');
     Route::post('/signup', 'registerUser');
     Route::post('/signin', 'authenticateUser');
+});
+
+
+Route::post('/uploadfile', [UploadController::class, 'uploadfile']);
+Route::get('/upload', function () {
+    return view('upload');
 });
