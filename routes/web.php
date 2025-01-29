@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\UploadController;
+use Illuminate\Support\Facades\App;
 
 // to access controllers or view 
 Route::get('/', function () {
@@ -68,4 +69,8 @@ Route::controller(AuthController::class)->group(function () {
 Route::post('/uploadfile', [UploadController::class, 'uploadfile']);
 Route::get('/upload', function () {
     return view('upload');
+});
+Route::get('/description/{lang}', function ($lang) {
+    App::setLocale($lang);
+    return view('description');
 });
