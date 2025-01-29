@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\StudentsController;
 
 // to access controllers or view 
@@ -51,4 +52,13 @@ Route::controller(StudentsController::class)->group(function () { //Controller r
             Route::get('/signup', 'signup');
         });
     });
+});
+
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/signin', 'signin');
+    Route::get('/signup', 'signup');
+    Route::get('/logout', 'logout');
+    Route::get('/profile', 'profile');
+    Route::post('/signup', 'registerUser');
+    Route::post('/signin', 'authenticateUser');
 });
