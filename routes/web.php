@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\App;
@@ -80,3 +81,7 @@ Route::get('/setlang/{lang}', function ($lang) {
     Session::put('lang', $lang);
     return redirect('description/{{$lang}}');
 });
+
+Route::view('/uploadimg', 'uploadimg');
+Route::post('/uploadfile', [ImageController::class, 'uploadimg']);
+Route::get('/listfile', [ImageController::class, 'listfile']);
