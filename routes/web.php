@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
 // to access controllers or view 
 Route::get('/', function () {
@@ -73,4 +74,9 @@ Route::get('/upload', function () {
 Route::get('/description/{lang}', function ($lang) {
     App::setLocale($lang);
     return view('description');
+});
+
+Route::get('/setlang/{lang}', function ($lang) {
+    Session::put('lang', $lang);
+    return redirect('description/{{$lang}}');
 });
