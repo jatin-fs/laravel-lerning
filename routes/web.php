@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\SellerController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\App;
@@ -85,3 +86,6 @@ Route::get('/setlang/{lang}', function ($lang) {
 Route::view('/uploadimg', 'uploadimg');
 Route::post('/uploadfile', [ImageController::class, 'uploadimg']);
 Route::get('/listfile', [ImageController::class, 'listfile']);
+
+Route::get('/listitem', [SellerController::class, 'listItems']);
+Route::get('/products', [SellerController::class, 'allProducts']);
