@@ -17,4 +17,9 @@ class SellerController extends Controller
     {
         return Product::with('seller')->get();
     }
+
+    function getProduct(Product $key)
+    {
+        return $key;
+    }
 }

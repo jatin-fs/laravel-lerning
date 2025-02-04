@@ -89,3 +89,4 @@ Route::get('/listfile', [ImageController::class, 'listfile']);
 
 Route::get('/listitem', [SellerController::class, 'listItems']);
 Route::get('/products', [SellerController::class, 'allProducts']);
+Route::get('/product/{key}', [SellerController::class, 'getProduct']);
